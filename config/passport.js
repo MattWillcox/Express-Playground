@@ -8,7 +8,7 @@ const GitHubStrategy = require('passport-github').Strategy;
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
 const OpenIDStrategy = require('passport-openid').Strategy;
-const OAuthStrategy = require('passport-oauth').OAuthStrategy;
+// const OAuthStrategy = require('passport-oauth').OAuthStrategy;
 // const OAuth2Strategy = require('passport-oauth').OAuth2Strategy;
 
 const User = require('../models/User');
@@ -490,6 +490,7 @@ passport.use(new OpenIDStrategy({
 /**
  * Pinterest API OAuth.
  */
+/*
 passport.use('pinterest', new OAuth2Strategy({
   authorizationURL: 'https://api.pinterest.com/oauth/',
   tokenURL: 'https://api.pinterest.com/v1/oauth/token',
@@ -498,16 +499,17 @@ passport.use('pinterest', new OAuth2Strategy({
   callbackURL: process.env.PINTEREST_REDIRECT_URL,
   passReqToCallback: true
 },
-  (req, accessToken, refreshToken, profile, done) => {
-    User.findById(req.user._id, (err, user) => {
-      if (err) { return done(err); }
-      user.tokens.push({ kind: 'pinterest', accessToken });
-      user.save((err) => {
-        done(err, user);
-      });
+(req, accessToken, refreshToken, profile, done) => {
+  User.findById(req.user._id, (err, user) => {
+    if (err) { return done(err); }
+    user.tokens.push({ kind: 'pinterest', accessToken });
+    user.save((err) => {
+      done(err, user);
     });
-  }
+  });
+}
 ));
+*/
 
 /**
  * Login Required middleware.
