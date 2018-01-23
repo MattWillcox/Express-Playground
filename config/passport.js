@@ -5,7 +5,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const FacebookStrategy = require('passport-facebook').Strategy;
 const TwitterStrategy = require('passport-twitter').Strategy;
 const GitHubStrategy = require('passport-github').Strategy;
-const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+// const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
 const OpenIDStrategy = require('passport-openid').Strategy;
 // const OAuthStrategy = require('passport-oauth').OAuthStrategy;
@@ -232,6 +232,7 @@ passport.use(new TwitterStrategy({
 /**
  * Sign in with Google.
  */
+/*
 passport.use(new GoogleStrategy({
   clientID: process.env.GOOGLE_ID,
   clientSecret: process.env.GOOGLE_SECRET,
@@ -286,6 +287,7 @@ passport.use(new GoogleStrategy({
     });
   }
 }));
+*/
 
 /**
  * Sign in with LinkedIn.
