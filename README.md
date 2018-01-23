@@ -166,8 +166,8 @@ them with *your credentials* when you are ready to deploy an app.
 - Fill out the required fields then click on **Save**
 - In the *Create Client ID* modal dialog:
  - **Application Type**: Web Application
- - **Authorized Javascript origins**: http://localhost:3000
- - **Authorized redirect URI**: http://localhost:3000/auth/google/callback
+ - **Authorized Javascript origins**: https://agile-headland-24758.herokuapp.com
+ - **Authorized redirect URI**: https://agile-headland-24758.herokuapp.com/auth/google/callback
 - Click on **Create Client ID** button
 - Copy and paste *Client ID* and *Client secret* keys into `.env`
 
@@ -192,7 +192,7 @@ The same goes for other providers.
  - **Note:** *App ID* is **clientID**, *App Secret* is **clientSecret**
 - Click on the *Settings* tab in the left nav, then click on **+ Add Platform**
 - Select **Website**
-- Enter `http://localhost:3000` under *Site URL*
+- Enter `https://agile-headland-24758.herokuapp.com` under *Site URL*
 
 **Note:** After a successful sign in with Facebook, a user will be redirected back to home page with appended hash `#_=_` in the URL. It is *not* a bug. See this [Stack Overflow](https://stackoverflow.com/questions/7131909/facebook-callback-appends-to-return-url) discussion for ways to handle it.
 
@@ -204,7 +204,7 @@ The same goes for other providers.
 - Select **Applications** from the sidebar
 - Then inside **Developer applications** click on **Register new application**
 - Enter *Application Name* and *Homepage URL*
-- For *Authorization Callback URL*: http://localhost:3000/auth/github/callback
+- For *Authorization Callback URL*: https://agile-headland-24758.herokuapp.com/auth/github/callback
 - Click **Register application**
 - Now copy and paste *Client ID* and *Client Secret* keys into `.env` file
 
@@ -231,8 +231,8 @@ The same goes for other providers.
  - *It may ask you to sign in once again*
 - Click **+ Add New Application** button
 - Fill out all the *required* fields
- - **OAuth 2.0 Redirect URLs**: http://localhost:3000/auth/linkedin/callback
- - **JavaScript API Domains**: http://localhost:3000
+ - **OAuth 2.0 Redirect URLs**: https://agile-headland-24758.herokuapp.com/auth/linkedin/callback
+ - **JavaScript API Domains**: https://agile-headland-24758.herokuapp.com
 - For **Default Application Permissions** make sure at least the following is checked:
  - `r_basicprofile`
 - Finish by clicking **Add Application** button
@@ -269,7 +269,7 @@ The same goes for other providers.
 - Click on **My Apps** in the top menu
 - Click the **Create A New App** button
 - Enter *App Name*, *Welcome page url*,
-- For **Redirect URI**: http://localhost:3000/auth/foursquare/callback
+- For **Redirect URI**: https://agile-headland-24758.herokuapp.com/auth/foursquare/callback
 - Click **Save Changes**
 - Copy and paste *Client ID* and *Client Secret* keys into `.env` file
 
@@ -280,7 +280,7 @@ The same goes for other providers.
 - Go to <a href="http://www.tumblr.com/oauth/apps" target="_blank">http://www.tumblr.com/oauth/apps</a>
 - Once signed in, click **+Register application**
 - Fill in all the details
-- For **Default Callback URL**: `http://localhost:3000/auth/tumblr/callback`
+- For **Default Callback URL**: `https://agile-headland-24758.herokuapp.com/auth/tumblr/callback`
 - Click **✔Register**
 - Copy and paste *OAuth consumer key* and *OAuth consumer secret* keys into `.env` file
 
@@ -591,7 +591,7 @@ And then create a route in `app.js`. I placed it right after the index controlle
 app.get('/escape-velocity', homeController.escapeVelocity);
 ```
 
-Restart the server (if you are not using **nodemon**), then you should see the new template at [http://localhost:3000/escape-velocity](http://localhost:3000/escape-velocity).
+Restart the server (if you are not using **nodemon**), then you should see the new template at [https://agile-headland-24758.herokuapp.com/escape-velocity](https://agile-headland-24758.herokuapp.com/escape-velocity).
 
 I will stop right here, but if you would like to use this template as more than just a single page, take a look at how these Jade templates work: `layout.pug` - base template, `index.pug` - home page, `partials/header.pug` - Bootstrap navbar, `partials/footer.pug` - sticky footer. You will have to manually break it apart into smaller pieces. Figure out which part of the template you want to keep the same on all pages - that's your new `layout.pug`.
 Then, each page that changes, be it `index.pug`, `about.pug`, `contact.pug`
