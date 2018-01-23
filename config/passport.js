@@ -9,7 +9,7 @@ const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
 const OpenIDStrategy = require('passport-openid').Strategy;
 const OAuthStrategy = require('passport-oauth').OAuthStrategy;
-const OAuth2Strategy = require('passport-oauth').OAuth2Strategy;
+// const OAuth2Strategy = require('passport-oauth').OAuth2Strategy;
 
 const User = require('../models/User');
 
@@ -405,6 +405,7 @@ passport.use(new InstagramStrategy({
 /**
  * Tumblr API OAuth.
  */
+/*
 passport.use('tumblr', new OAuthStrategy({
   requestTokenURL: 'http://www.tumblr.com/oauth/request_token',
   accessTokenURL: 'http://www.tumblr.com/oauth/access_token',
@@ -414,20 +415,21 @@ passport.use('tumblr', new OAuthStrategy({
   callbackURL: '/auth/tumblr/callback',
   passReqToCallback: true
 },
-  (req, token, tokenSecret, profile, done) => {
-    User.findById(req.user._id, (err, user) => {
-      if (err) { return done(err); }
-      user.tokens.push({ kind: 'tumblr', accessToken: token, tokenSecret });
-      user.save((err) => {
-        done(err, user);
-      });
+(req, token, tokenSecret, profile, done) => {
+  User.findById(req.user._id, (err, user) => {
+    if (err) { return done(err); }
+    user.tokens.push({ kind: 'tumblr', accessToken: token, tokenSecret });
+    user.save((err) => {
+      done(err, user);
     });
-  }
+  });
+}
 ));
 
 /**
  * Foursquare API OAuth.
  */
+/*
 passport.use('foursquare', new OAuth2Strategy({
   authorizationURL: 'https://foursquare.com/oauth2/authorize',
   tokenURL: 'https://foursquare.com/oauth2/access_token',
@@ -436,16 +438,17 @@ passport.use('foursquare', new OAuth2Strategy({
   callbackURL: process.env.FOURSQUARE_REDIRECT_URL,
   passReqToCallback: true
 },
-  (req, accessToken, refreshToken, profile, done) => {
-    User.findById(req.user._id, (err, user) => {
-      if (err) { return done(err); }
-      user.tokens.push({ kind: 'foursquare', accessToken });
-      user.save((err) => {
-        done(err, user);
-      });
+(req, accessToken, refreshToken, profile, done) => {
+  User.findById(req.user._id, (err, user) => {
+    if (err) { return done(err); }
+    user.tokens.push({ kind: 'foursquare', accessToken });
+    user.save((err) => {
+      done(err, user);
     });
-  }
+  });
+}
 ));
+*/
 
 /**
  * Steam API OpenID.
