@@ -78,7 +78,7 @@ app.use(session({
   saveUninitialized: true,
   secret: process.env.SESSION_SECRET,
   store: new MongoStore({
-    url: process.env.MONGOLAB_URI,
+    mongooseConnection: mongoose.connection,
     autoReconnect: true,
     clear_interval: 3600
   })
